@@ -15,3 +15,5 @@ export class MyDexieClass extends Dexie {
     });
   }
 }
+
+export const db = new MyDexieClass();
