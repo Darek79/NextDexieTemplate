@@ -1,5 +1,6 @@
 import Store from 'store/store';
 import { v4 as uuidv4 } from 'uuid';
+import { useStore } from 'store/context';
 
 import { ChangeEvent, FormEvent, SyntheticEvent, useState } from 'react';
 interface ShowListI {
@@ -13,7 +14,8 @@ interface Properties {
 //   readonly elements: Properties;
 // }
 
-export default function CreateList({ todos }: ShowListI): JSX.Element {
+export default function CreateList(): JSX.Element {
+  const { todos } = useStore();
   const [state, setState] = useState<string>('');
   // function addStuff(e: ChangeEvent<HTMLInputElement>) {
   //   e.preventDefault();

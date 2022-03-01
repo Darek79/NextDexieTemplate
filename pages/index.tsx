@@ -5,17 +5,16 @@ import CreateList from 'components/CreateList';
 import ShowList from 'components/ShowList';
 import Head from 'next/head';
 import Image from 'next/image';
-
-const todos = new Store();
+import store, { StoreContext } from 'store/context';
 
 const Home: NextPage = () => {
   return (
-    <div className="">
-      {/* <AddDb /> */}
-
-      <CreateList todos={todos} />
-      <ShowList todos={todos} />
-    </div>
+    <StoreContext.Provider value={store}>
+      <div className="">
+        <CreateList />
+        <ShowList />
+      </div>
+    </StoreContext.Provider>
   );
 };
 

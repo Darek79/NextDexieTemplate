@@ -1,10 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import Store from './../store/store';
+import { useStore } from 'store/context';
 interface ShowListI {
   todos: Store;
 }
 
-function ShowList({ todos }: ShowListI): JSX.Element {
+function ShowList(): JSX.Element {
+  const { todos } = useStore();
   return (
     <ul>
       {console.log(todos, 'TODOS')}
@@ -15,4 +17,4 @@ function ShowList({ todos }: ShowListI): JSX.Element {
   );
 }
 
-export default observer(ShowList)
+export default observer(ShowList);
